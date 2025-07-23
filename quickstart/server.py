@@ -6,24 +6,41 @@ from mcp.server.fastmcp import FastMCP
 
 
 # Create an MCP Server
-mcp = FastMCP("Demo")
+mcp = FastMCP(name="Demo", host="localhost", port=8000, timeout=30)
 
 
-# Add an addition tool
+# ---------- TOOLS ------------
+
+
+# Addition tool
 @mcp.tool()
 def add(a: int, b: int) -> int:
     """Add two Integers"""
     return a + b
 
 
-# Add dynamic greeting resource
+# ---------- RESOURCES ------------
+
+
+# Static resource
+@mcp.resource("resource://static_resource")
+def get_static_resource() -> str:
+    """Static resource data"""
+    return f"Some static data"
+
+
+# Dynamic resource
 @mcp.resource("greeting://{name}")
 def get_greeting(name: str) -> str:
     """Get a personalized greeting"""
     return f'Hello, {name}!'
 
 
-# Add a prompt
+# ---------- PROMPTS ------------
+
+
+# Greeting prompt
+@mcp.prompt()
 def greet_user(name: str, style: str = "friendly") -> str:
     """Generate greeting prompt"""
     styles = {
@@ -31,4 +48,12 @@ def greet_user(name: str, style: str = "friendly") -> str:
         "formal": "Please write a formal, professional greeting",
         "casual": "Please write a casual, relaxed greeting",
     }
-    return f'styles.get(style, styles["friendly"]) for someone named {name}.'
+    return f'{styles.get(style, styles["friendly"])} for someone named {name}.'
+
+
+# ---------- END ------------
+
+
+if __name__ == "__main__":
+    print(f'Starting MCP Server from main script...')
+    mcp.run(transport="sse")

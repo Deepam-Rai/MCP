@@ -17,5 +17,18 @@ mcp dev server.py
 # Arguments: run --with mcp mcp run server.py
 ```
 
+Or, start the server with `sse` transport by:
+```
+python server.py
+
+# then run quickstart example client.py
+# or test with Postman, etc.
+```
+
+Run MCP client:
+```
+python client.py
+```
+
 # References
 - https://github.com/modelcontextprotocol/python-sdk
