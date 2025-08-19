@@ -1,24 +1,10 @@
 # About
-Basic introduction to MCP at [Basics.md](Basics.md)  
-
-# Setting Up Environment
-```shell
-# Create new python environment
-conda create -n mcp python=3.11
-# Activate the environment
-conda activate mcp
-
-# Install dependencies
-uv pip install -r requirements.txt
-```
-
-# Quickstart
-In `quickstart` folder. Checkout [quickstart/README.md](quickstart/README.md).
-
-
-# References:
-- Introduction: https://modelcontextprotocol.io/introduction
-- MCP vs API: https://medium.com/@tahirbalarabe2/model-context-protocol-mcp-vs-apis-the-new-standard-for-ai-integration-d6b9a7665ea7
-- Quickstart: https://github.com/modelcontextprotocol/python-sdk
-- Basic tutorial: https://youtu.be/-WogqfxWBbM?si=sfnFFZUdqyPjBsKg
-- 
+Learning MCP.
+1. Basic introduction to MCP: [Basics.md](Basics.md)
+2. Quickstart project:
+   1. `quickstart` folder.
+   2. [README.md](quickstart/README.md).
+3. MCP integration with basic chatbot
+   1. Chatbot tech: streamlit + Ollama
+   2. `chatbot_integration` folder.
+   3. [README.md](./chatbot_integration/README.md)
